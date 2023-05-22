@@ -1,9 +1,10 @@
 package org.example;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
 public class TextFileEditor {
 
     public static void main(String[] args) {
@@ -46,5 +47,47 @@ public class TextFileEditor {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void crearCarpeta(String ruta){
+        Path directorio = Paths.get(ruta);
+        if(Files.exists(directorio)){
+            System.out.println("El archivo ya existe");
+        }else{
+            try{
+                Files.createDirectories(directorio);
+            }catch(Exception e){
+                System.out.println("El directorio no pudo ser creado");
+            }
+        }
+    }
+
+    public void crearArchivo(String ruta, String contenido){
+        Path archivo = Paths.get(ruta);
+        try{
+            Files.write(archivo,contenido.getBytes());
+        }catch (IOException e){
+            System.out.println("El archivo no pudo ser creado");
+        }
+    }
+
+    public String leerArchivo(String ruta){
+        String contenido = "";
+        Path archivo = Paths.get(ruta);
+        try{
+            contenido = new String(Files.readAllBytes(archivo));
+        }catch(IOException e){
+            System.out.println("El archivo no pudo ser leido");
+        }
+        return contenido;
+    }
+    public void nuevaLinea(String ruta, String contenido){
+        String oldFile = leerArchivo(ruta);
+        String newFile = oldFile+"\n"+contenido;
+        crearArchivo(ruta, newFile);
+    }
+    public String[] listaArchivos(String ruta) {
+        File f = new File(ruta);
+        String[] archivos = f.list();
+        return archivos;
     }
 }
