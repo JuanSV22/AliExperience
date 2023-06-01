@@ -8,8 +8,8 @@ import java.nio.file.StandardCopyOption;
 public class TextFileEditor {
 
     public TextFileEditor() {
-        crearCarpeta("");
-        crearArchivo("","");
+        crearCarpeta("C:\\Users\\neoxu\\Documents\\GitHub\\AliExperience\\Aeoi");
+        crearArchivo("C:\\Users\\neoxu\\Documents\\GitHub\\AliExperience\\Aeoi\\AA.txt","Lorem Ipsum");
     }
 
     public static String loadFile(String filePath) {

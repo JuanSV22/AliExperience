@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Primera Implementación">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Boleta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GestorPedido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Boleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Boleta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pedido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextFileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextFileEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,6 +76,17 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primera Implementación" />
