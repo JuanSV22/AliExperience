@@ -7,19 +7,9 @@ import java.nio.file.StandardCopyOption;
 
 public class TextFileEditor {
 
-    public static void main(String[] args) {
-        String filePath = "path/to/your/file.txt";
-
-        // Cargar Archivo.
-        String fileContent = loadFile(filePath);
-        System.out.println("File content:");
-        System.out.println(fileContent);
-
-        // Editar Archivo.
-        String editedContent = editFileContent(fileContent);
-
-        // Guardar el archivo cambiado.
-        saveFile(filePath, editedContent);
+    public TextFileEditor() {
+        crearCarpeta("");
+        crearArchivo("","");
     }
 
     public static String loadFile(String filePath) {
@@ -33,12 +23,6 @@ public class TextFileEditor {
             e.printStackTrace();
         }
         return content.toString();
-    }
-
-    public static String editFileContent(String fileContent) {
-        // Aplicar el cambio deseado a fileContent
-        // Por ejemplo, cambiar el texto entero a mayusculas.
-        return fileContent.toUpperCase();
     }
 
     public static void saveFile(String filePath, String content) {
@@ -80,10 +64,27 @@ public class TextFileEditor {
         }
         return contenido;
     }
-    public void nuevaLinea(String ruta, String contenido){
-        String oldFile = leerArchivo(ruta);
-        String newFile = oldFile+"\n"+contenido;
-        crearArchivo(ruta, newFile);
+    public void eliminarLinea(String ruta, String contenido){
+        String lineToRemove = "posicion 6";
+
+        File inputFile = new File("C:\\Data\\archivo.txt");
+        File outputFile = new File("C:\\Data\\archivo_nuevo.txt");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                if(currentLine.trim().equals(lineToRemove)){
+                    continue;
+                }
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public String[] listaArchivos(String ruta) {
         File f = new File(ruta);

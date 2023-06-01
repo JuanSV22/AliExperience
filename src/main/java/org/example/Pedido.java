@@ -1,25 +1,37 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Pedido {
-    private String modelo;
-    private String pieza;
 
-    public Pedido() {
-    }
+	private String modelo;
+	private String pieza;
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
+	public Pedido() {
+		generarPedido();
+	}
+	public String getModelo() {
+		return this.modelo;
+	}
+	public String getPieza() {
+		return this.pieza;
+	}
 
-    public void setPieza(String pieza) {
-        this.pieza = pieza;
-    }
+	public void generarPedido() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ingrese el modelo del teléfono: ");
+		this.modelo = scanner.next();
+		System.out.println("Ingrese la pieza a pedir: ");
+		this.pieza = scanner.next();
+	}
+	public boolean comparadorConArchivo(){
+		TextFileEditor tf = new TextFileEditor();
+		tf.leerArchivo("");
+		return true;
+	}
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public String getPieza() {
-        return pieza;
-    }
+	@Override
+	public String toString() {
+		return "Pedido{" + "modelo='" + modelo + '\'' + ", pieza='" + pieza + '\'' + '}';
+	}
 }
