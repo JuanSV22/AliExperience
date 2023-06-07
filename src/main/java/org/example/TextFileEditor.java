@@ -8,8 +8,18 @@ import java.nio.file.StandardCopyOption;
 public class TextFileEditor {
 
     public TextFileEditor() {
-        crearCarpeta("C:\\Users\\neoxu\\Documents\\GitHub\\AliExperience\\Aeoi");
-        crearArchivo("C:\\Users\\neoxu\\Documents\\GitHub\\AliExperience\\Aeoi\\AA.txt","Lorem Ipsum");
+        if (!(new File("Boletas\\").exists())) { //Revisa si la carpeta NO existe.
+            crearCarpeta("Boletas");
+        } else {System.out.println("La carpeta Boletas\\ ha sido creada.");}
+    }
+    public void crearBoleta(String content) {
+        crearArchivo("Boletas\\Boleta" + contarBoletas("Boletas\\") + ".txt", content);
+    }
+    public void crearBoleta() {
+        crearArchivo("Boletas\\Boleta" + contarBoletas("Boletas\\") + ".txt","");
+    }
+    public String generarRutaArchivo() {
+        return "Boletas\\Boleta" + contarBoletas("Boletas\\") + ".txt";
     }
 
     public static String loadFile(String filePath) {
@@ -55,14 +65,8 @@ public class TextFileEditor {
     }
 
     public String leerArchivo(String ruta){
-        String contenido = "";
-        Path archivo = Paths.get(ruta);
-        try{
-            contenido = new String(Files.readAllBytes(archivo));
-        }catch(IOException e){
-            System.out.println("El archivo no pudo ser leido");
-        }
-        return contenido;
+        File file = new File(ruta);
+        return file.toString();
     }
     public void eliminarLinea(String ruta, String contenido){
         String lineToRemove = "posicion 6";
@@ -90,5 +94,13 @@ public class TextFileEditor {
         File f = new File(ruta);
         String[] archivos = f.list();
         return archivos;
+    }
+
+    public int contarBoletas(String ruta){
+        int num = 0;
+        while (new File(ruta+"Boleta"+num+".txt").exists()) {
+            num++;
+        }
+        return num;
     }
 }

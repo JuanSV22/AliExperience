@@ -32,6 +32,6 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		return "Pedido{" + "modelo='" + modelo + '\'' + ", pieza='" + pieza + '\'' + '}';
+		return "Modelo: "+ this.modelo + ", Pieza: " + this.pieza;
 	}
 }
