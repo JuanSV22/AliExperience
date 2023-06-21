@@ -57,6 +57,38 @@ public class TextFileEditor {
         }
     }
 
+    public void eliminarLineaInventario(String modelo, String pieza) {
+        try {
+            File archivo = new File("Inventario.txt");
+            File archivoTemp = new File("InventarioTemp.txt");
+
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            PrintWriter pw = new PrintWriter(new FileWriter(archivoTemp));
+
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+
+                if (datos.length == 3 && datos[0].equalsIgnoreCase(modelo) && datos[1].equalsIgnoreCase(pieza)) {
+                    // La línea coincide con el modelo y la pieza, no la escribimos en el archivo temporal
+                    continue;
+                }
+
+                pw.println(linea);
+            }
+
+            br.close();
+            pw.close();
+
+            // Eliminamos el archivo original y renombramos el archivo temporal
+            archivo.delete();
+            archivoTemp.renameTo(archivo);
+
+            System.out.println("Línea eliminada del inventario.");
+        } catch (IOException e) {
+            System.out.println("Error al eliminar la línea del inventario: " + e.getMessage());
+        }
+    }
 
     public void crearArchivo(String ruta, String contenido) {
         Path archivo = Paths.get(ruta);
