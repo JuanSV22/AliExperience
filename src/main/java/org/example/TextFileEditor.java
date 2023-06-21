@@ -1,25 +1,27 @@
-package org.example;
-import java.io.*;
+package org.example;import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 public class TextFileEditor {
-
     public TextFileEditor() {
-        if (!(new File("Boletas\\").exists())) { //Revisa si la carpeta NO existe.
+        if (!new File("Boletas").exists()) {
             crearCarpeta("Boletas");
-        } else {System.out.println("La carpeta Boletas\\ ha sido creada.");}
+        } else {
+            System.out.println("La carpeta Boletas/ ha sido creada.");
+        }
     }
-    public void crearBoleta(String content) {
-        crearArchivo("Boletas\\Boleta" + contarBoletas("Boletas\\") + ".txt", content);
+
+    public void crearBoleta(String contenido) {
+        crearArchivo("Boletas/Boleta" + contarBoletas("Boletas/") + ".txt", contenido);
     }
+
     public void crearBoleta() {
-        crearArchivo("Boletas\\Boleta" + contarBoletas("Boletas\\") + ".txt","");
+        crearArchivo("Boletas/Boleta" + contarBoletas("Boletas/") + ".txt", "");
     }
+
     public String generarRutaArchivo() {
-        return "Boletas\\Boleta" + contarBoletas("Boletas\\") + ".txt";
+        return "Boletas/Boleta" + contarBoletas("Boletas/") + ".txt";
     }
 
     public static String loadFile(String filePath) {
@@ -42,35 +44,36 @@ public class TextFileEditor {
             e.printStackTrace();
         }
     }
-    public void crearCarpeta(String ruta){
-        Path directorio = Paths.get(ruta);
-        if(Files.exists(directorio)){
-            System.out.println("El archivo ya existe");
-        }else{
-            try{
-                Files.createDirectories(directorio);
-            }catch(Exception e){
-                System.out.println("El directorio no pudo ser creado");
+
+    public void crearCarpeta(String ruta) {
+        File carpeta = new File(ruta);
+        try {
+            if (!carpeta.exists()) {
+                carpeta.mkdirs();
+                System.out.println("La carpeta " + ruta + " ha sido creada.");
             }
+        } catch (Exception e) {
+            System.out.println("No se pudo crear la carpeta " + ruta + ".");
         }
     }
 
-    public void crearArchivo(String ruta, String contenido){
+
+    public void crearArchivo(String ruta, String contenido) {
         Path archivo = Paths.get(ruta);
-        try{
-            Files.write(archivo,contenido.getBytes());
-        }catch (IOException e){
+        try {
+            Files.write(archivo, contenido.getBytes());
+        } catch (IOException e) {
             System.out.println("El archivo no pudo ser creado");
         }
     }
 
-    public String leerArchivo(String ruta){
+    public String leerArchivo(String ruta) {
         File file = new File(ruta);
         return file.toString();
     }
-    public void eliminarLinea(String ruta, String contenido){
-        String lineToRemove = "posicion 6";
 
+    public void eliminarLinea(String ruta, String contenido) {
+        String lineToRemove = "posicion 6";
         File inputFile = new File("C:\\Data\\archivo.txt");
         File outputFile = new File("C:\\Data\\archivo_nuevo.txt");
 
@@ -80,8 +83,8 @@ public class TextFileEditor {
 
             String currentLine;
 
-            while((currentLine = reader.readLine()) != null) {
-                if(currentLine.trim().equals(lineToRemove)){
+            while ((currentLine = reader.readLine()) != null) {
+                if (currentLine.trim().equals(lineToRemove)) {
                     continue;
                 }
                 writer.write(currentLine + System.getProperty("line.separator"));
@@ -90,15 +93,16 @@ public class TextFileEditor {
             e.printStackTrace();
         }
     }
+
     public String[] listaArchivos(String ruta) {
         File f = new File(ruta);
         String[] archivos = f.list();
         return archivos;
     }
 
-    public int contarBoletas(String ruta){
+    public int contarBoletas(String ruta) {
         int num = 0;
-        while (new File(ruta+"Boleta"+num+".txt").exists()) {
+        while (new File(ruta + "Boleta" + num + ".txt").exists()) {
             num++;
         }
         return num;

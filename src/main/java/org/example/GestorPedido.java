@@ -1,7 +1,6 @@
 package org.example;
 
 public class GestorPedido {
-
 	private void modificarInventario() {
 		TextFileEditor textFile = new TextFileEditor();
 		textFile.loadFile("");
@@ -11,5 +10,4 @@ public class GestorPedido {
 		TextFileEditor textFile = new TextFileEditor();
 		textFile.leerArchivo("");
 	}
-
 }
