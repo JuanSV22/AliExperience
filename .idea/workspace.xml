@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Implementacion Ventana. Version 1.">
-      <change afterPath="$PROJECT_DIR$/imgFolder/AliExperienceLOGO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/AliExperienceLOGO2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/Battery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/CargaPuerto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/Lupa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/NO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/Pantalla.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgFolder/Speaker.png" afterDir="false" />
+    <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Apartado visual de ventana mejorado.">
+      <change afterPath="$PROJECT_DIR$/imgFolder/AliExperienceIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/AliExperienceIcon2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/Camara.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/FlexComun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/FlexPantalla.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/Motherboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/PanelTrasero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgFolder/VibracionMotor.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AliVentana.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AliVentana.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AliVentana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AliVentana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Boleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Boleta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687960304441</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Apartado visual de ventana mejorado.">
+      <created>1687976931814</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687976931814</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +160,7 @@
     <MESSAGE value="Codigo descrito en el informe. Redundancias removidas." />
     <MESSAGE value="Inventario añadido, eliminacion en caso de repeticion añadida." />
     <MESSAGE value="Implementacion Ventana. Version 1." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementacion Ventana. Version 1." />
+    <MESSAGE value="Apartado visual de ventana mejorado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Apartado visual de ventana mejorado." />
   </component>
 </project>
