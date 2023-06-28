@@ -34,7 +34,7 @@ public class Boleta {
 		strBuilder.append("}");
 		return strBuilder.toString();
 	}
-
+	/*
 	public void generarBoleta() {
 		StringBuilder strBuilder = new StringBuilder();
 		strBuilder.append("Detalle de la boleta:\n");
@@ -50,5 +50,5 @@ public class Boleta {
 		}
 		TextFileEditor tf = new TextFileEditor();
 		tf.crearBoleta(strBuilder.toString());
-	}
+	}*/
 }
