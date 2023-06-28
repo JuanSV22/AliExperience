@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Codigo descrito en el informe. Redundancias removidas.">
+    <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Inventario añadido, eliminacion en caso de repeticion añadida.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AliVentana.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AliVentana.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GestorPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GestorPedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextFileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextFileEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687382401444</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Inventario añadido, eliminacion en caso de repeticion añadida.">
+      <created>1687383700405</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687383700405</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,7 +109,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Working_Branch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -113,6 +132,7 @@
     <MESSAGE value="Limpieza de codigo (1)" />
     <MESSAGE value="Limpieza de codigo (2)" />
     <MESSAGE value="Codigo descrito en el informe. Redundancias removidas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Codigo descrito en el informe. Redundancias removidas." />
+    <MESSAGE value="Inventario añadido, eliminacion en caso de repeticion añadida." />
+    <option name="LAST_COMMIT_MESSAGE" value="Inventario añadido, eliminacion en caso de repeticion añadida." />
   </component>
 </project>
