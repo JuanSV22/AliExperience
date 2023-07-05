@@ -1,4 +1,4 @@
-package org.example;import java.io.*;
+package Utilities;import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,10 +14,6 @@ public class TextFileEditor {
 
     public void crearBoleta(String contenido) {
         crearArchivo("Boletas/Boleta" + contarBoletas("Boletas/") + ".txt", contenido);
-    }
-
-    public void crearBoleta() {
-        crearArchivo("Boletas/Boleta" + contarBoletas("Boletas/") + ".txt", "");
     }
 
     public String generarRutaArchivo() {
@@ -104,25 +100,13 @@ public class TextFileEditor {
         return file.toString();
     }
 
-    public void eliminarLinea(String ruta, String contenido) {
-        String lineToRemove = "posicion 6";
-        File inputFile = new File("C:\\Data\\archivo.txt");
-        File outputFile = new File("C:\\Data\\archivo_nuevo.txt");
-
+    public static void escribirArchivoJSON(String ruta, String contenido) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
-
-            String currentLine;
-
-            while ((currentLine = reader.readLine()) != null) {
-                if (currentLine.trim().equals(lineToRemove)) {
-                    continue;
-                }
-                writer.write(currentLine + System.getProperty("line.separator"));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+            FileWriter myWriter = new FileWriter(ruta);
+            myWriter.write(contenido);
+            myWriter.close();
+        } catch (IOException | NullPointerException e) {
+            System.out.println("No se pudo escribir");
         }
     }
 

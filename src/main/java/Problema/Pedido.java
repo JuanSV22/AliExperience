@@ -1,6 +1,6 @@
 package org.example;
 
-import Utilities.API;
+import Utilities.TextFileEditor;
 
 import java.util.Scanner;
 
@@ -19,7 +19,6 @@ public class Pedido {
 
 	public void generarPedido() {
 		Scanner scanner = new Scanner(System.in);
-		API.buscarProducto(this.modelo, this.pieza);
 
 		/* boolean validInput = false;
 		while (!validInput) {

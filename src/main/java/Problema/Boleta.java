@@ -1,7 +1,9 @@
 package org.example;
 
+import Utilities.TextFileEditor;
+
 public class Boleta {
-	private Pedido[] datosPedido = {};
+	private org.example.Pedido[] datosPedido = {};
 	private String ruta;
 
 	public String getRuta() {
@@ -13,8 +15,8 @@ public class Boleta {
 		this.ruta = tf.generarRutaArchivo();
 	}
 
-	public void addPedido(Pedido datoPedido) {
-		Pedido[] newPed = new Pedido[this.datosPedido.length + 1];
+	public void addPedido(org.example.Pedido datoPedido) {
+		org.example.Pedido[] newPed = new org.example.Pedido[this.datosPedido.length + 1];
 		System.arraycopy(this.datosPedido, 0, newPed, 0, this.datosPedido.length);
 		newPed[this.datosPedido.length] = datoPedido;
 		this.datosPedido = newPed;
@@ -28,7 +30,7 @@ public class Boleta {
 	@Override
 	public String toString() {
 		StringBuilder strBuilder = new StringBuilder("{\n");
-		for (Pedido pedido : this.datosPedido) {
+		for (org.example.Pedido pedido : this.datosPedido) {
 			strBuilder.append("\t").append(pedido.toString()).append("\n");
 		}
 		strBuilder.append("}");

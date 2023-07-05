@@ -1,4 +1,6 @@
-package org.example;
+package GUI;
+
+import Utilities.API;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -33,8 +35,6 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setContentPane(JMainPanel);
         DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("Hi");
-        model.addElement("Hiii");
         marketList.setModel(model);
         marketList.addListSelectionListener(this);
         searchButton.setIcon(new ImageIcon("imgFolder/Lupa.png"));
@@ -52,6 +52,10 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == searchButton) {
             System.out.println("SEARCH BUTTON PRESSED"); //Implementar utilidad
+            String searchText = textField.getText();
+            String selectedComponent = (String) combo1.getSelectedItem();
+            API.buscarProducto(searchText, selectedComponent);
+
         }
     }
 
