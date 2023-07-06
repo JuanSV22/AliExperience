@@ -65,7 +65,7 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
             String seleccionado = (String) combo1.getSelectedItem();
             switch (seleccionado) {
                 case "Batería" -> componentLabel.setIcon(new ImageIcon("imgFolder/Battery.png"));
-                case "Pantalla" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
+                case "Display" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
                 case "Speaker" -> componentLabel.setIcon(new ImageIcon("imgFolder/Speaker.png"));
                 case "Puerto de carga" -> componentLabel.setIcon(new ImageIcon("imgFolder/CargaPuerto.png"));
                 case "Cámara" -> componentLabel.setIcon(new ImageIcon("imgFolder/Camara.png"));

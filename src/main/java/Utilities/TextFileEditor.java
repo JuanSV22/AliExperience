@@ -1,7 +1,14 @@
-package Utilities;import java.io.*;
+package Utilities;
+
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class TextFileEditor {
     public TextFileEditor() {
@@ -20,25 +27,39 @@ public class TextFileEditor {
         return "Boletas/Boleta" + contarBoletas("Boletas/") + ".txt";
     }
 
-    public static String loadFile(String filePath) {
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void escribirArchivoJSON(String ruta, String contenido) {
+        try {
+            FileWriter myWriter = new FileWriter(ruta);
+            myWriter.write(contenido);
+            myWriter.close();
+        } catch (IOException | NullPointerException e) {
+            System.out.println("No se pudo escribir");
         }
-        return content.toString();
     }
 
-    public static void saveFile(String filePath, String content) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(content);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static JSONArray parsearArchivoJSON(String ruta) throws RuntimeException {
+        try {
+            String contenidosJSON = leerContenidosJSON(ruta);
+            JSONParser parser = new JSONParser();
+            return (JSONArray) parser.parse(contenidosJSON);
+        } catch (ParseException e) {
+            System.out.println("No se pudo parsear el archivo");
+            throw new RuntimeException();
+        } catch (FileNotFoundException e) {
+            System.out.println("No se pudo encontrar el archivo");
+            throw new RuntimeException();
         }
+    }
+
+    public static String leerContenidosJSON(String ruta) throws FileNotFoundException {
+        StringBuilder st = new StringBuilder();
+        File archivoJSON = new File(ruta);
+        Scanner scanner = new Scanner(archivoJSON);
+        while (scanner.hasNextLine()) {
+            st.append(scanner.nextLine()).append("\n");
+        }
+        scanner.close();
+        return st.toString();
     }
 
     public void crearCarpeta(String ruta) {
@@ -53,39 +74,6 @@ public class TextFileEditor {
         }
     }
 
-    public void eliminarLineaInventario(String modelo, String pieza) {
-        try {
-            File archivo = new File("Inventario.txt");
-            File archivoTemp = new File("InventarioTemp.txt");
-
-            BufferedReader br = new BufferedReader(new FileReader(archivo));
-            PrintWriter pw = new PrintWriter(new FileWriter(archivoTemp));
-
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(",");
-
-                if (datos.length == 3 && datos[0].equalsIgnoreCase(modelo) && datos[1].equalsIgnoreCase(pieza)) {
-                    // La línea coincide con el modelo y la pieza, no la escribimos en el archivo temporal
-                    continue;
-                }
-
-                pw.println(linea);
-            }
-
-            br.close();
-            pw.close();
-
-            // Eliminamos el archivo original y renombramos el archivo temporal
-            archivo.delete();
-            archivoTemp.renameTo(archivo);
-
-            System.out.println("Línea eliminada del inventario.");
-        } catch (IOException e) {
-            System.out.println("Error al eliminar la línea del inventario: " + e.getMessage());
-        }
-    }
-
     public void crearArchivo(String ruta, String contenido) {
         Path archivo = Paths.get(ruta);
         try {
@@ -93,27 +81,6 @@ public class TextFileEditor {
         } catch (IOException e) {
             System.out.println("El archivo no pudo ser creado");
         }
-    }
-
-    public String leerArchivo(String ruta) {
-        File file = new File(ruta);
-        return file.toString();
-    }
-
-    public static void escribirArchivoJSON(String ruta, String contenido) {
-        try {
-            FileWriter myWriter = new FileWriter(ruta);
-            myWriter.write(contenido);
-            myWriter.close();
-        } catch (IOException | NullPointerException e) {
-            System.out.println("No se pudo escribir");
-        }
-    }
-
-    public String[] listaArchivos(String ruta) {
-        File f = new File(ruta);
-        String[] archivos = f.list();
-        return archivos;
     }
 
     public int contarBoletas(String ruta) {

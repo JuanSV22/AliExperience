@@ -1,49 +1,71 @@
-package org.example;
-
-import Utilities.TextFileEditor;
-
-import java.util.Scanner;
+package Problema;
 
 public class Pedido {
-	private String modelo;
-	private String pieza;
-	private boolean arreglo;
+	private String titulo;
+	private String estrellas;
+	private String ventas;
+	private String envioGratis;
 
 	public Pedido() {
-		generarPedido();
 	}
 
-	public boolean esArreglo() {
-		return arreglo;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void generarPedido() {
-		Scanner scanner = new Scanner(System.in);
-
-		/* boolean validInput = false;
-		while (!validInput) {
-			System.out.println("¿Es un pedido para un arreglo? (true/false): ");
-			String input = scanner.next();
-			if (input.equalsIgnoreCase("true")) {
-				this.arreglo = true;
-				validInput = true;
-			} else if (input.equalsIgnoreCase("false")) {
-				this.arreglo = false;
-				validInput = true;
-			} else {
-				System.out.println("Entrada inválida. Por favor, ingrese 'true' o 'false'.");
-			}
-		}*/
+	public String getEstrellas() {
+		return estrellas;
 	}
 
-	public boolean comparadorConArchivo() {
-		TextFileEditor tf = new TextFileEditor();
-		tf.leerArchivo("");
-		return true;
+	public String getVentas() {
+		return ventas;
 	}
 
+	public String getEnvioGratis() {
+		return envioGratis;
+	}
+
+	public void setTitulo(Object titulo) {
+		if (titulo == null){
+			titulo = "";
+		}
+		else{
+			this.titulo = titulo.toString();
+		}
+
+	}
+
+	public void setEstrellas(Object estrellas) {
+		if (estrellas == null){
+			estrellas = "";
+		}
+		else{
+			this.estrellas = estrellas.toString();
+		}
+	}
+
+	public void setVentas(Object ventas) {
+		if (ventas == null){
+			ventas = "";
+		}
+		else{
+			this.ventas = ventas.toString();
+		}
+	}
+
+	public void setEnvioGratis(Object envioGratis) {
+		if (envioGratis == null){
+			envioGratis = "";
+		}
+		else{
+			this.envioGratis = envioGratis.toString();
+		}
+	}
 	@Override
 	public String toString() {
-		return "Modelo: " + this.modelo + ", Pieza: " + this.pieza + ", Arreglo: " + this.arreglo;
+		return "".concat(String.format("%s: %s\n", "Título", titulo))
+				.concat(String.format("%s: %s\n", "Estrellas", estrellas))
+				.concat(String.format("%s: %s\n", "Ventas", ventas))
+				.concat(String.format("%s: %s\n", "Envío Gratis", envioGratis));
 	}
 }

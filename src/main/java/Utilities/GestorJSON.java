@@ -1,23 +1,38 @@
 package Utilities;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import Problema.Pedido;
+import java.util.ArrayList;
+import java.util.List;
+
 public class GestorJSON {
     public GestorJSON() {
     }
+    public static List<Pedido> obtenerProductos() { //para implementarse
+        List<Pedido> productos = new ArrayList<>();
 
-/*    public static JSONArray parsearArchivoJSON(String ruta) throws RuntimeException, ParseException {
-        try {
-            String contenidosJSON = leerContenidosJSON(ruta);
-            JSONParser parser = new JSONParser();
-            return (JSONArray) parser.parse(contenidosJSON);
-        } catch (RuntimeException | ParseException e) {
-            throw e;
+        JSONArray productosJSON = TextFileEditor.parsearArchivoJSON("src/main/java/Datos/boleta.json");
+        JSONObject resultados = (JSONObject) ((JSONObject) productosJSON.get(0)).get("result");
+        JSONArray listaResultados = (JSONArray) resultados.get("resultList");
+
+        for (Object jsonProducto : listaResultados) {
+            JSONObject jsonSiguiente = (JSONObject) jsonProducto;
+            Pedido producto = new Pedido();
+
+            JSONObject item = (JSONObject) (jsonSiguiente.get("item"));
+            JSONObject delivery = (JSONObject) (jsonSiguiente.get("delivery"));
+
+            obtenerAtributosProducto(producto, item, delivery);
+            productos.add(producto);
         }
+        return productos;
     }
 
-    private static void getAtributos(Pedido pedido, JSONObject votacionJSON) {
-        votacion.setId(votacionJSON.get(CampoDeVotacion.ID.getTexto()));
-        votacion.setTitulo(votacionJSON.get(CampoDeVotacion.TITULO.getTexto()));
-        votacion.setDescripcion(votacionJSON.get(CampoDeVotacion.DESCRIPCION.getTexto()));
-        votacion.setEstadoDeVotacion(votacionJSON.get(CampoDeVotacion.ESTADO.getTexto()));
-    }*/
+    public static void obtenerAtributosProducto(Pedido producto, JSONObject item, JSONObject delivery){
+        producto.setTitulo(item.get("title"));
+        producto.setEstrellas(item.get("averageStarRate"));
+        producto.setVentas(item.get("sales"));
+        producto.setEnvioGratis(delivery.get("freeShipping"));
+    }
 }
