@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Inventario añadido, eliminacion en caso de repeticion añadida.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Datos/productos.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Datos/boleta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Datos/productos.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Datos/productos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/PedidoCellRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/PedidoCellRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Problema/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Problema/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/GestorJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/GestorJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Problema/Boleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Problema/Boleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/TextFileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/TextFileEditor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

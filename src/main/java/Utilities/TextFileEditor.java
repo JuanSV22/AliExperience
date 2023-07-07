@@ -19,14 +19,6 @@ public class TextFileEditor {
         }
     }
 
-    public void crearBoleta(String contenido) {
-        crearArchivo("Boletas/Boleta" + contarBoletas("Boletas/") + ".txt", contenido);
-    }
-
-    public String generarRutaArchivo() {
-        return "Boletas/Boleta" + contarBoletas("Boletas/") + ".txt";
-    }
-
     public static void escribirArchivoJSON(String ruta, String contenido) {
         try {
             FileWriter myWriter = new FileWriter(ruta);
@@ -81,13 +73,5 @@ public class TextFileEditor {
         } catch (IOException e) {
             System.out.println("El archivo no pudo ser creado");
         }
-    }
-
-    public int contarBoletas(String ruta) {
-        int num = 0;
-        while (new File(ruta + "Boleta" + num + ".txt").exists()) {
-            num++;
-        }
-        return num;
     }
 }

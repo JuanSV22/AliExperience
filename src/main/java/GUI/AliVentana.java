@@ -6,11 +6,8 @@ import Utilities.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AliVentana extends JFrame implements ActionListener, ItemListener, ListSelectionListener {
@@ -27,6 +24,7 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
     private JScrollPane JScroller;
     private JPanel JLower;
     private JLabel TableObjects;
+    private JButton saveButton;
     private DefaultListModel<Pedido> model;
 
 
@@ -62,7 +60,30 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
         titleLabel.setIcon(new ImageIcon("imgFolder/AliExperienceLOGO3.png"));
         setIconImage(new ImageIcon("imgFolder/AliExperienceIcon2x.png").getImage());
         searchButton.addActionListener(this);
+        saveButton.setVisible(false);
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Boleta boleta = new Boleta();
+                boleta.crearBoleta();
+            }
+        });
         System.out.println("Cargando: 3/3");
+        marketList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Object o = new Object();
+                Boleta boleta = new Boleta();
+                int index = marketList.locationToIndex(e.getPoint());
+                if (marketList.isSelectedIndex(index)) {
+                    o = marketList.getModel().getElementAt(index);
+                    boleta.addListaBoletas(o);
+                }else{
+                    o = marketList.getModel().getElementAt(index);
+                    boleta.removeListaBoletas(o);
+                }
+            }
+        });
         setVisible(true);
     }
 
@@ -81,6 +102,7 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
             }
             marketList.setModel(model);
             marketList.setCellRenderer(new PedidoCellRenderer());
+            saveButton.setVisible(true);
         }
     }
 
@@ -90,7 +112,7 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
             String seleccionado = (String) combo1.getSelectedItem();
             switch (seleccionado) {
                 case "Batería" -> componentLabel.setIcon(new ImageIcon("imgFolder/Battery.png"));
-                case "Display" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
+                case "Pantalla" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
                 case "Speaker" -> componentLabel.setIcon(new ImageIcon("imgFolder/Speaker.png"));
                 case "Puerto de carga" -> componentLabel.setIcon(new ImageIcon("imgFolder/CargaPuerto.png"));
                 case "Cámara" -> componentLabel.setIcon(new ImageIcon("imgFolder/Camara.png"));
