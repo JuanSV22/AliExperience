@@ -25,7 +25,7 @@ public class API {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-        TextFileEditor.escribirArchivoJSON("src/main/java/Datos/boleta.json",response.body());
+        TextFileEditor.escribirArchivoJSON("src/main/java/Datos/productos.json",response.body());
     }
     public static void infoEnvio(){
         HttpRequest request = HttpRequest.newBuilder()
@@ -42,5 +42,4 @@ public class API {
         }
         System.out.println(response.body());
     }
-
 }

@@ -5,6 +5,7 @@ public class Pedido {
 	private String estrellas;
 	private String ventas;
 	private String envioGratis;
+	private String precio;
 
 	private String image;
 
@@ -26,17 +27,21 @@ public class Pedido {
 	public String getEstrellas() {
 		return estrellas;
 	}
+
 	public String getImage() {return image;}
 
 	public String getVentas() {
 		return ventas;
 	}
+	public String getPrecio() {
+		return precio;
+	}
 
 	public String getEnvioGratis() {
 		return envioGratis;
 	}
-	public boolean isEnvioGratis() {return (envioGratis=="true");}
 
+	public boolean isEnvioGratis() {return (envioGratis=="true");}
 	public void setTitulo(Object titulo) {
 		if (titulo == null){
 			titulo = "";
@@ -83,11 +88,21 @@ public class Pedido {
 		}
 	}
 
+	public void setPrecio(Object precio) {
+		if (precio == null){
+			precio = "";
+		}
+		else{
+			this.precio = precio.toString();
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "".concat(String.format("%s: %s\n", "Título", titulo))
 				.concat(String.format("%s: %s\n", "Estrellas", estrellas))
 				.concat(String.format("%s: %s\n", "Ventas", ventas))
-				.concat(String.format("%s: %s\n", "Envío Gratis", envioGratis));
+				.concat(String.format("%s: %s\n", "Envío Gratis", envioGratis))
+				.concat(String.format("%s: %s\n", "Precio", precio));
 	}
 }

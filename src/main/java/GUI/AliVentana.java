@@ -16,7 +16,7 @@ import java.util.List;
 public class AliVentana extends JFrame implements ActionListener, ItemListener, ListSelectionListener {
     private JTextField textField;
     private JComboBox<String> combo1;
-    private JList<Pedido> marketList; // Changed JList type to Pedido
+    private JList<Pedido> marketList;
     private JButton searchButton;
     private JPanel JMainPanel;
     private JPanel JUpper;
@@ -46,6 +46,7 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
                 "<th style='width: 70px;font-size:x-large;border-right: 3px solid gray; padding: 8px;'>★/5</th>" +
                 "<th style='width: 80px;font-size:large;border-right: 3px solid gray; padding: 8px;'>Ventas</th>" +
                 "<th style='width: 90px;font-size:large;border-right: 3px solid gray; padding: 8px;'>Envio Gratis</th>" +
+                "<th style='width: 90px;font-size:large;border-right: 3px solid gray; padding: 8px;'>Precio</th>" +
                 "</tr></html>");
 
         model = new DefaultListModel<>();
@@ -89,7 +90,7 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
             String seleccionado = (String) combo1.getSelectedItem();
             switch (seleccionado) {
                 case "Batería" -> componentLabel.setIcon(new ImageIcon("imgFolder/Battery.png"));
-                case "Pantalla" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
+                case "Display" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
                 case "Speaker" -> componentLabel.setIcon(new ImageIcon("imgFolder/Speaker.png"));
                 case "Puerto de carga" -> componentLabel.setIcon(new ImageIcon("imgFolder/CargaPuerto.png"));
                 case "Cámara" -> componentLabel.setIcon(new ImageIcon("imgFolder/Camara.png"));

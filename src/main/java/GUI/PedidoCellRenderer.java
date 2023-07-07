@@ -24,7 +24,8 @@ public class PedidoCellRenderer extends JLabel implements ListCellRenderer<Pedid
                 "<td style='text-align: center;border-right: 3px solid gray; padding: 8px;'>" + tituloText + "</td>" +
                 "<td style='text-align: center;font-size:x-large;width: 70px;border-right: 3px solid gray; padding: 8px; word-wrap: break-word'>" + (value.getEstrellas() == null ? "N/A" : value.getEstrellas()) + "</td>" +
                 "<td style='text-align: center;font-size:large;width: 80px;border-right: 3px solid gray; padding: 8px; word-wrap: break-word'>" + value.getVentas() + "</td>" +
-                "<td style='text-align: center;font-size:x-large;width: 90px;border-right: 3px solid gray; padding: 8px; word-wrap: break-word'>" + envioGratisText + "</td></tr>" +
+                "<td style='text-align: center;font-size:x-large;width: 90px;border-right: 3px solid gray; padding: 8px; word-wrap: break-word'>" + envioGratisText + "</td>" +
+                "<td style='text-align: center;font-size:x-large;width: 100px;border-right: 3px solid gray; padding: 8px; word-wrap: break-word'>" + value.getPrecio() + "</td></tr>" +
                 "</table></div></html>";
         setText(labelText);
 
