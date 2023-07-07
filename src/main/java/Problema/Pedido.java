@@ -6,7 +6,17 @@ public class Pedido {
 	private String ventas;
 	private String envioGratis;
 
+	private String image;
+
 	public Pedido() {
+	}
+
+	public Pedido(String image, String titulo, String estrellas, String ventas, String envioGratis) {
+		this.image = image;
+		this.titulo = titulo;
+		this.estrellas = estrellas;
+		this.ventas = ventas;
+		this.envioGratis = envioGratis;
 	}
 
 	public String getTitulo() {
@@ -16,6 +26,7 @@ public class Pedido {
 	public String getEstrellas() {
 		return estrellas;
 	}
+	public String getImage() {return image;}
 
 	public String getVentas() {
 		return ventas;
@@ -24,6 +35,7 @@ public class Pedido {
 	public String getEnvioGratis() {
 		return envioGratis;
 	}
+	public boolean isEnvioGratis() {return (envioGratis=="true");}
 
 	public void setTitulo(Object titulo) {
 		if (titulo == null){
@@ -61,6 +73,16 @@ public class Pedido {
 			this.envioGratis = envioGratis.toString();
 		}
 	}
+
+	public void setImage(Object image) {
+		if (image == null){
+			image = "";
+		}
+		else{
+			this.image = image.toString();
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "".concat(String.format("%s: %s\n", "Título", titulo))

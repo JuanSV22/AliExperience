@@ -30,7 +30,7 @@ public class TextFileEditor {
     public static void escribirArchivoJSON(String ruta, String contenido) {
         try {
             FileWriter myWriter = new FileWriter(ruta);
-            myWriter.write(contenido);
+            myWriter.write("["+contenido+"]");
             myWriter.close();
         } catch (IOException | NullPointerException e) {
             System.out.println("No se pudo escribir");

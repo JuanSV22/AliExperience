@@ -34,5 +34,6 @@ public class GestorJSON {
         producto.setEstrellas(item.get("averageStarRate"));
         producto.setVentas(item.get("sales"));
         producto.setEnvioGratis(delivery.get("freeShipping"));
+        producto.setImage("https:"+item.get("image"));
     }
 }
