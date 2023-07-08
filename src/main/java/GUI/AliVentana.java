@@ -52,10 +52,10 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
         System.out.println("Cargando: 2/3");
 
         searchButton.setIcon(new ImageIcon("imgFolder/Lupa.png"));
-        for (String componente : new String[]{"Batería", "Pantalla", "Speaker", "Puerto de carga", "Cámara", "Panel trasero", "Placa madre", "Motor de vibración", "Flex de pantalla", "Flex de comunicación"}) {
+        for (String componente : new String[]{"Pantalla","Batería", "Speaker", "Puerto de carga", "Cámara", "Panel trasero", "Placa madre", "Motor de vibración", "Flex de pantalla", "Flex de comunicación"}) {
             combo1.addItem(componente);
         }
-        componentLabel.setIcon(new ImageIcon("imgFolder/Battery.png"));
+        componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
         combo1.addItemListener(this);
         titleLabel.setIcon(new ImageIcon("imgFolder/AliExperienceLOGO3.png"));
         setIconImage(new ImageIcon("imgFolder/AliExperienceIcon2x.png").getImage());
@@ -64,23 +64,28 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Boleta boleta = new Boleta();
+                Boleta boleta = Boleta.getInstancia();
+                TextFileEditor tf = new TextFileEditor();
                 boleta.crearBoleta();
+                JOptionPane.showMessageDialog(AliVentana.this, tf.leerArchivo("src/main/java/Datos/Boleta" + boleta.getBoletaActual("src/main/java/Datos/") + ".txt"), "Boleta", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         System.out.println("Cargando: 3/3");
         marketList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Object o = new Object();
-                Boleta boleta = new Boleta();
+                Object object;
+                Boleta boleta = Boleta.getInstancia();
                 int index = marketList.locationToIndex(e.getPoint());
                 if (marketList.isSelectedIndex(index)) {
-                    o = marketList.getModel().getElementAt(index);
-                    boleta.addListaBoletas(o);
+                    object = marketList.getModel().getElementAt(index).getPrecio();
+                    boleta.addListaBoletas(object);
+                    boleta.addListaBoletas(boleta.calculoManoObra(object));
+
                 }else{
-                    o = marketList.getModel().getElementAt(index);
-                    boleta.removeListaBoletas(o);
+                    object = marketList.getModel().getElementAt(index).getPrecio();
+                    boleta.removeListaBoletas(object);
+                    boleta.removeListaBoletas(boleta.calculoManoObra(object));
                 }
             }
         });
@@ -111,8 +116,8 @@ public class AliVentana extends JFrame implements ActionListener, ItemListener, 
         if (e.getSource() == combo1) {
             String seleccionado = (String) combo1.getSelectedItem();
             switch (seleccionado) {
-                case "Batería" -> componentLabel.setIcon(new ImageIcon("imgFolder/Battery.png"));
                 case "Pantalla" -> componentLabel.setIcon(new ImageIcon("imgFolder/Pantalla.png"));
+                case "Batería" -> componentLabel.setIcon(new ImageIcon("imgFolder/Battery.png"));
                 case "Speaker" -> componentLabel.setIcon(new ImageIcon("imgFolder/Speaker.png"));
                 case "Puerto de carga" -> componentLabel.setIcon(new ImageIcon("imgFolder/CargaPuerto.png"));
                 case "Cámara" -> componentLabel.setIcon(new ImageIcon("imgFolder/Camara.png"));

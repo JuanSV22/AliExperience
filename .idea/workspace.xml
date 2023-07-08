@@ -7,8 +7,8 @@
     <list default="true" id="36ea1add-9be0-4d7c-91e7-a44e40f2cd10" name="Changes" comment="Inventario añadido, eliminacion en caso de repeticion añadida.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Datos/productos.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Datos/productos.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/AliVentana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Launcher/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Problema/Boleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Problema/Boleta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/TextFileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/TextFileEditor.java" afterDir="false" />
     </list>
@@ -186,16 +186,5 @@
     <MESSAGE value="Implementacion Ventana. Version 1." />
     <MESSAGE value="Apartado visual de ventana mejorado." />
     <option name="LAST_COMMIT_MESSAGE" value="Apartado visual de ventana mejorado." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Launcher/Main.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

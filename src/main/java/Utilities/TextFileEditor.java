@@ -74,4 +74,16 @@ public class TextFileEditor {
             System.out.println("El archivo no pudo ser creado");
         }
     }
+    public String leerArchivo(String ruta) {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(ruta))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content.toString();
+    }
 }

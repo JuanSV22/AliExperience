@@ -1,8 +1,10 @@
 package Launcher;
 
 import GUI.AliVentana;
+import Problema.Boleta;
 import Problema.Pedido;
 import Utilities.GestorJSON;
+import Utilities.TextFileEditor;
 
 public class Main {
     public static void main(String[] args) {
