@@ -10,6 +10,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+/**
+ * Clase de utilidades para editar archivos de texto y manejar datos en formato JSON.
+ */
 public class TextFileEditor {
     public TextFileEditor() {
         if (!new File("Boletas").exists()) {
@@ -19,16 +22,29 @@ public class TextFileEditor {
         }
     }
 
+    /**
+     * Escribe el contenido en un archivo JSON.
+     *
+     * @param ruta      La ruta del archivo a escribir.
+     * @param contenido El contenido a escribir en el archivo.
+     */
     public static void escribirArchivoJSON(String ruta, String contenido) {
         try {
             FileWriter myWriter = new FileWriter(ruta);
-            myWriter.write("["+contenido+"]");
+            myWriter.write("[" + contenido + "]");
             myWriter.close();
         } catch (IOException | NullPointerException e) {
             System.out.println("No se pudo escribir");
         }
     }
 
+    /**
+     * Lee un archivo JSON y lo parsea en un objeto JSONArray.
+     *
+     * @param ruta La ruta del archivo JSON a parsear.
+     * @return El JSONArray obtenido a partir del archivo JSON.
+     * @throws RuntimeException Si no se pudo parsear el archivo.
+     */
     public static JSONArray parsearArchivoJSON(String ruta) throws RuntimeException {
         try {
             String contenidosJSON = leerContenidosJSON(ruta);
@@ -43,6 +59,13 @@ public class TextFileEditor {
         }
     }
 
+    /**
+     * Lee los contenidos de un archivo JSON y los devuelve como una cadena de texto.
+     *
+     * @param ruta La ruta del archivo JSON a leer.
+     * @return Los contenidos del archivo JSON como una cadena de texto.
+     * @throws FileNotFoundException Si no se pudo encontrar el archivo.
+     */
     public static String leerContenidosJSON(String ruta) throws FileNotFoundException {
         StringBuilder st = new StringBuilder();
         File archivoJSON = new File(ruta);
@@ -54,6 +77,11 @@ public class TextFileEditor {
         return st.toString();
     }
 
+    /**
+     * Crea una carpeta en la ruta especificada.
+     *
+     * @param ruta La ruta de la carpeta a crear.
+     */
     public void crearCarpeta(String ruta) {
         File carpeta = new File(ruta);
         try {
@@ -66,6 +94,12 @@ public class TextFileEditor {
         }
     }
 
+    /**
+     * Crea un archivo en la ruta especificada con el contenido especificado.
+     *
+     * @param ruta      La ruta del archivo a crear.
+     * @param contenido El contenido del archivo a crear.
+     */
     public void crearArchivo(String ruta, String contenido) {
         Path archivo = Paths.get(ruta);
         try {
@@ -74,6 +108,13 @@ public class TextFileEditor {
             System.out.println("El archivo no pudo ser creado");
         }
     }
+
+    /**
+     * Lee el contenido de un archivo y lo devuelve como una cadena de texto.
+     *
+     * @param ruta La ruta del archivo a leer.
+     * @return El contenido del archivo como una cadena de texto.
+     */
     public String leerArchivo(String ruta) {
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(ruta))) {
